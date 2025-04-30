@@ -10,7 +10,7 @@ A sleek web application that calculates the distance between two geographical co
 - 🌐 Ready for deployment (Vercel)
 
 ## 🚀 Live Demo
-> Coming soon: [https://distance-calculator.vercel.app](https://distance-calculator.vercel.app)
+> Click Here: [https://distance-calculator-sooty.vercel.app](https://distance-calculator-sooty.vercel.app)
 
 ## 🛠️ Tech Stack
 - **Framework**: [Next.js 15](https://nextjs.org/)
