@@ -3,12 +3,14 @@
 import { useState } from "react";
 
 type InputMode = "decimal" | "dms";
+// Define a specific type for directions
+type Direction = "N" | "S" | "E" | "W";
 
 interface DmsPoint {
   deg: string;
   min: string;
   sec: string;
-  dir: "N" | "S" | "E" | "W";
+  dir: Direction;
 }
 
 export default function DistanceCalculator() {
@@ -151,7 +153,7 @@ export default function DistanceCalculator() {
               {/* Point 1 */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden flex flex-col">
                 <div className="bg-[#4a6b8a] text-white px-4 py-2 font-bold text-xs tracking-wide uppercase">Point 1</div>
-                  <div className="p-4 flex flex-col gap-3">
+                <div className="p-4 flex flex-col gap-3">
                   <div>
                     <label className="text-xs font-bold text-gray-500 block mb-1 uppercase tracking-wide">Latitude</label>
                     <input
@@ -203,7 +205,7 @@ export default function DistanceCalculator() {
               </div>
             </div>
           ) : (
-            // DMS GRID LAYOUT (Side by Side) - Reduces Height
+            // DMS GRID LAYOUT
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Point 1 */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden flex flex-col">
@@ -225,7 +227,7 @@ export default function DistanceCalculator() {
                         <input type="text" className="w-full p-2 border border-gray-300 rounded text-center text-sm focus:border-blue-500 outline-none" placeholder="51.36" value={dmsInputs.p1Lat.sec} onChange={(e) => handleDmsChange("p1Lat", "sec", e.target.value)} />
                         <span className="absolute right-1 top-0 text-[9px] text-gray-400 font-bold">SEC</span>
                       </div>
-                      <select className="w-12 p-1 border border-gray-300 rounded font-bold text-gray-700 text-sm bg-white cursor-pointer" value={dmsInputs.p1Lat.dir} onChange={(e) => handleDmsChange("p1Lat", "dir", e.target.value as any)}>
+                      <select className="w-12 p-1 border border-gray-300 rounded font-bold text-gray-700 text-sm bg-white cursor-pointer" value={dmsInputs.p1Lat.dir} onChange={(e) => handleDmsChange("p1Lat", "dir", e.target.value as Direction)}>
                         <option value="N">N</option><option value="S">S</option>
                       </select>
                     </div>
@@ -246,7 +248,7 @@ export default function DistanceCalculator() {
                         <input type="text" className="w-full p-2 border border-gray-300 rounded text-center text-sm focus:border-blue-500 outline-none" placeholder="11.76" value={dmsInputs.p1Lon.sec} onChange={(e) => handleDmsChange("p1Lon", "sec", e.target.value)} />
                         <span className="absolute right-1 top-0 text-[9px] text-gray-400 font-bold">SEC</span>
                       </div>
-                      <select className="w-12 p-1 border border-gray-300 rounded font-bold text-gray-700 text-sm bg-white cursor-pointer" value={dmsInputs.p1Lon.dir} onChange={(e) => handleDmsChange("p1Lon", "dir", e.target.value as any)}>
+                      <select className="w-12 p-1 border border-gray-300 rounded font-bold text-gray-700 text-sm bg-white cursor-pointer" value={dmsInputs.p1Lon.dir} onChange={(e) => handleDmsChange("p1Lon", "dir", e.target.value as Direction)}>
                         <option value="E">E</option><option value="W">W</option>
                       </select>
                     </div>
@@ -274,7 +276,7 @@ export default function DistanceCalculator() {
                         <input type="text" className="w-full p-2 border border-gray-300 rounded text-center text-sm focus:border-blue-500 outline-none" placeholder="58.56" value={dmsInputs.p2Lat.sec} onChange={(e) => handleDmsChange("p2Lat", "sec", e.target.value)} />
                         <span className="absolute right-1 top-0 text-[9px] text-gray-400 font-bold">SEC</span>
                       </div>
-                      <select className="w-12 p-1 border border-gray-300 rounded font-bold text-gray-700 text-sm bg-white cursor-pointer" value={dmsInputs.p2Lat.dir} onChange={(e) => handleDmsChange("p2Lat", "dir", e.target.value as any)}>
+                      <select className="w-12 p-1 border border-gray-300 rounded font-bold text-gray-700 text-sm bg-white cursor-pointer" value={dmsInputs.p2Lat.dir} onChange={(e) => handleDmsChange("p2Lat", "dir", e.target.value as Direction)}>
                         <option value="N">N</option><option value="S">S</option>
                       </select>
                     </div>
@@ -295,7 +297,7 @@ export default function DistanceCalculator() {
                         <input type="text" className="w-full p-2 border border-gray-300 rounded text-center text-sm focus:border-blue-500 outline-none" placeholder="01.08" value={dmsInputs.p2Lon.sec} onChange={(e) => handleDmsChange("p2Lon", "sec", e.target.value)} />
                         <span className="absolute right-1 top-0 text-[9px] text-gray-400 font-bold">SEC</span>
                       </div>
-                      <select className="w-12 p-1 border border-gray-300 rounded font-bold text-gray-700 text-sm bg-white cursor-pointer" value={dmsInputs.p2Lon.dir} onChange={(e) => handleDmsChange("p2Lon", "dir", e.target.value as any)}>
+                      <select className="w-12 p-1 border border-gray-300 rounded font-bold text-gray-700 text-sm bg-white cursor-pointer" value={dmsInputs.p2Lon.dir} onChange={(e) => handleDmsChange("p2Lon", "dir", e.target.value as Direction)}>
                         <option value="E">E</option><option value="W">W</option>
                       </select>
                     </div>
