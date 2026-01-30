@@ -3,7 +3,8 @@
 import { useState } from "react";
 
 type InputMode = "decimal" | "dms";
-// Define a specific type for directions
+
+// Defined explicit type for Direction to satisfy Vercel Linter
 type Direction = "N" | "S" | "E" | "W";
 
 interface DmsPoint {
